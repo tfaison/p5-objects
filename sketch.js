@@ -4,9 +4,10 @@ function setup() {
 }
 
 function draw() {
-	background(0);
+	background(204,51, 153);
 	p1.display();
 	p1.move();
+	p1.boundary();
 }
 
 function Pacman(x, y) {
@@ -37,10 +38,14 @@ function Pacman(x, y) {
 			this.x -= 5;
 			this.rotation = 180;
 		};
+
+		}
 		this.boundary = function() {
 			if (this.x > width) {
-			      
+			      this. x=0;
 			}
-		}
+			if(this.y < 0){
+				this.y = height;
+			}
 	}
 }
