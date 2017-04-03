@@ -1,10 +1,18 @@
+var faison;
+
+function preload(){
+	faison = loadImage("pacman-background.png");
+
+}
+
 function setup() {
-	createCanvas(600, 400);
+	createCanvas(980, 750);
 	p1 = new Pacman(300, 200);
 }
 
 function draw() {
-	background(204,51, 153);
+	//background(204,51, 153);
+	image(faison, 0, 0);
 	p1.display();
 	p1.move();
 	p1.boundary();
@@ -38,14 +46,21 @@ function Pacman(x, y) {
 			this.x -= 5;
 			this.rotation = 180;
 		};
-
+			
 		}
 		this.boundary = function() {
 			if (this.x > width) {
-			      this. x=0;
+			      this. x = 0;
+			}
+			if(this.x < 0){
+				this.x = width;
+			}
+			if(this.y > height){
+				this.y = 0;
 			}
 			if(this.y < 0){
 				this.y = height;
 			}
+			
 	}
 }
